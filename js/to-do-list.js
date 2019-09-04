@@ -19,6 +19,7 @@ window.ToDoList ={
         }).done(function (response) {
             console.log("Successfully received response")
             console.log(response);
+            ToDoList.getItems();
         })
     
   
@@ -38,6 +39,38 @@ window.ToDoList ={
 
     },
 
+    deleteItems: function(itemID){
+        $.ajax({
+            url:ToDoList.API_BASE_URL +"?id=" + itemID,
+            method: "DELETE",
+            //MIME type
+
+        }).done(function (response) {
+            console.log("Successfully received response")
+            console.log(response);
+            ToDoList.getItems();
+        })
+
+    },
+
+    updateItems: function(itemID,done){
+        $.ajax({
+            url:ToDoList.API_BASE_URL +"?id=" + itemID,
+            method: "PUT",
+            //MIME type
+            contentType: "application/json",
+            data: JSON.stringify({
+                done: done
+        })
+
+        }).done(function (response) {
+            console.log("Successfully received response")
+            console.log(response);
+            ToDoList.getItems();
+        })
+
+    },
+
     displayItems: function(items) {
 
         var tableBodyHtml ="";
@@ -49,21 +82,41 @@ window.ToDoList ={
 
     getItemRow: function(item){
         var formattedDate = new Date(...item.deadline).toLocaleDateString("en-US");
-
+        //ternary operator
+        var checkedAtribute = item.done ? "checked" : "" ;
+        
         return ` <tr>
             <td>${item.description}</td>
             <td>${formattedDate}</td>
-            <td><input type="checkbox" class="mark-done-checkbox" title="Completed"/></td>
-            <td><a href="#" class="delete-item fa fa-trash"></a> </td>
+            <td><input type="checkbox" class="mark-done-checkbox"
+             title="Completed" data-id="${item.id}" ${checkedAtribute}/></td>
+            <td><a href="#" class="delete-item fa fa-trash" data-id="${item.id}"></a> </td>
         </tr>`
 
     },
 
     bindEvents: function () {
+
         $("#new-item-form").submit(function (event) {
             event.preventDefault();
             ToDoList.createItem();
-            
+
+        });
+        //using degate because the element a.delete-item is dynamically injected
+        //after the page has been loaded
+        $("#to-do-items-table").delegate(".delete-item",  "click",  function (event) {
+            event.preventDefault();
+            var itemID = $(this).data("id");
+            ToDoList.deleteItems(itemID);
+
+        });
+
+        $("#to-do-items-table").delegate(".mark-done-checkbox",  "change",  function (event) {
+            event.preventDefault();
+            var itemID = $(this).data("id");
+            var checkboxChecked = $(this).is(":checked")
+            ToDoList.updateItems(itemID , checkboxChecked);
+
         });
         
     }
