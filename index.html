@@ -1,71 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
-    <title>To-do-list</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="https://use.fontawesome.com/57c8124f73.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Employees</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Salary</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-<div class="content">
-    <h1>To Do List</h1>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="pontaj.html">Clocking</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Employees</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="form-inline">
+        <div class="form-group">
+            <label for="ID">ID</label>
+            <input type="text" class="form-control" id="ID" placeholder="">
+            <label for="Marca">MARCA</label>
+            <input type="text" class="form-control" id="Marca" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="Firstname">First name</label>
+            <input type="text" class="form-control" id="Firstname" placeholder="">
+            <label for="Lastname">Last name</label>
+            <input type="text" class="form-control" id="Lastname" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="Salary">Salary</label>
+            <input type="text" class="form-control" id="Salary" placeholder="" size="10">
+            <label for="Standardhours">Standard Hours</label>
+            <input type="text" class="form-control" id="Standardhours" placeholder="" size="3">
+            <label for="Personaldeduction">Personal Deduction</label>
+            <input type="text" class="form-control" id="Personaldeduction" placeholder="" size="10">
+            <label for="Tiket">Tiket</label>
+            <input type="text" class="form-control" id="Tiket" placeholder="" size="10">
+        </div>
 
-    <h3>Create new item</h3>
-    <form id="new-item-form">
-        <label for="description-field">Description</label>
-        <input type="text" id="description-field" placeholder="Description">
-        <label for="deadline-picker">Deadline</label>
-        <input type="datetime-local" id="deadline-picker" >
-        <input type="submit" />
+        <button type="submit" id="submit" class="btn btn-primary">Salveaza salariat</button>
 
-    </form>
-
-    <table id="to-do-items-table">
+    </div>
+    <table class="table">
         <thead>
         <tr>
-            <th>
-                Description
-            </th><th>
-            Deadline
-        </th><th>
-            Done
-        </th>
-            <th>
-                Actions
-            </th>
+            <th scope="col">#</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Salary</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>Learn HTML</td>
-            <td>30.08.2019</td>
-            <td><input type="checkbox" class="mark-done-checkbox" title="Completed"/></td>
-            <td><a href="#" class="delete-item fa fa-trash"></a> </td>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
         </tr>
-
         <tr>
-            <td>Learn Javascript</td>
-            <td>30.08.2019</td>
-            <td><input type="checkbox" class="mark-done-checkbox" title="Completed"/></td>
-            <td><a href="#" class="delete-item fa fa-trash"></a> </td>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
         </tr>
-
         <tr>
-            <td>Learn CSS</td>
-            <td>30.08.2019</td>
-            <td><input type="checkbox" class="mark-done-checkbox" title="Completed"/></td>
-            <td><a href="#" class="delete-item fa fa-trash"></a> </td>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
         </tr>
-
-
         </tbody>
     </table>
 </div>
-<script src="js/lib/jquery-3.4.1.min.js"></script>
-<script src="js/to-do-list.js"></script>
 
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        crossorigin="anonymous"></script>
+<script src="js/lib/employees.js"></script>
 </body>
-
-</html>
