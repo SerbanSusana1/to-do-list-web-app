@@ -7,36 +7,23 @@
 
 /* Add some margins for each label */
 .form-inline label {
-    margin: 5px 10px 5px 0;
+    margin: 15px 20px 15px 0;
+    background-color:#d6d6d6;
 }
 
 /* Style the input fields */
 .form-inline input {
     vertical-align: middle;
-    margin: 5px 10px 5px 0;
+    margin: 15px 20px 15px 0;
     padding: 10px;
     background-color: #fff;
     border: 1px solid #ddd;
 }
-#to-do-items-table {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
 
-#to-do-items-table td, #to-do-items-table th {
+.form-group {
+    vertical-align: middle;
+    margin: 15px 20px 15px 0;
+    padding: 10px;
+    background-color: #d6d6d6;
     border: 1px solid #ddd;
-    padding: 8px;
-}
-
-#to-do-items-table tr:nth-child(even){background-color: #f2f2f2;}
-
-#to-do-items-table tr:hover {background-color: #ddd;}
-
-#to-do-items-table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
 }
